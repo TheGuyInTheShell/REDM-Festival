@@ -1,0 +1,35 @@
+@use 'base/vars';
+@use 'base/mixins' as mix;
+
+.footer{
+    background-color: vars.$rosa;
+    color: vars.$blanco;
+}
+.footer-cont h3{
+    font-size: 2rem;
+    text-align: center;
+    @include mix.tablet{
+        margin-left: 3rem;
+    }
+}
+.footer-cont p{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.836);
+}
+.footer-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: 2rem;
+    flex-direction: column;
+    @include mix.tablet{
+        flex-direction: row;
+    }
+    .separator{
+        display: none;
+        @include mix.tablet{
+            display: inline;
+        }
+    }
+}

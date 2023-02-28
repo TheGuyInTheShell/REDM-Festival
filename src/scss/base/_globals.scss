@@ -1,0 +1,50 @@
+@use 'vars';
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: vars.$font_principal;
+    font-size: 1.6rem;
+    &.body-freeze{
+        overflow: hidden;
+    }
+    &.body-scroll{
+        padding-top: 8.6rem;
+    }
+}
+p{
+    font-size: 1.5rem;
+    color: vars.$negro;
+}
+.cont{
+    width: 90vw;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+h1,h2,h3{
+    margin: 0;
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.6rem;
+}
+h3{
+    font-size: 3rem;
+}
+img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+ul{
+    list-style: none;
+}

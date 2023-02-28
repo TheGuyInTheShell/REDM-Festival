@@ -1,0 +1,29 @@
+@use 'base/vars';
+@use 'base/mixins' as mix;
+
+.about-festival{
+    display: grid;
+    padding: 1rem;
+    margin-top: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+    .image{
+        img{
+           border-radius: 10px; 
+        }
+    }
+}
+.cont-festival{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        margin-bottom: 1rem;
+    }
+    .fecha{
+        color: vars.$rosa;
+        font-weight: 700;
+      
+    }
+  
+}

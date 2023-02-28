@@ -1,0 +1,50 @@
+@use 'base/vars';
+@use 'base/mixins' as mix;
+
+.boletos-container{
+    padding: 5rem 0;
+    color: vars.$blanco;
+    background-color: vars.$verde;
+    h3{
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+.boletos{
+    display: grid;
+    @include mix.grid(1, 2rem);
+    @include mix.tablet{
+        @include mix.grid(2, 2rem)
+    }
+}
+.boletos div{
+    p{
+        margin: 4rem auto;
+        text-align: center;
+        color: vars.$blanco;
+        font-size: 3rem;
+    }
+}
+.lista-precios{
+    padding-inline-start: 0;
+    li:first-child{
+        color: vars.$blanco;
+        background-color: red;
+        text-align: center;
+        border-bottom: none;
+        text-transform: uppercase;     
+    }
+    li{
+        color: vars.$negro;
+        background-color: vars.$blanco;
+        padding: 2rem;
+        font-size: 2.5rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    }
+    li:last-child{
+        color: vars.$amarillo;
+        background-color: vars.$morado;
+        text-align: center;
+        border-bottom: none;
+    }
+}

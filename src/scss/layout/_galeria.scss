@@ -1,0 +1,54 @@
+@use 'base/vars';
+@use 'base/mixins' as mix;
+
+
+.galeria{
+    padding: 5rem 0;
+    h3{
+        text-align: center;
+        margin-bottom: 5rem;
+    }
+}
+
+.galeria-imagenes{
+   @include mix.grid(2, 2rem);
+   @include mix.tablet{
+    @include mix.grid(3, 2rem);
+   }
+   @include mix.desktop{
+       @include mix.grid(4, 2rem);
+   }
+   @include mix.desktopXL{
+       @include mix.grid(6, 2rem)
+   }
+}
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background-color: rgba(0, 0, 0, 0.089);
+    picture{
+        display: block;
+        max-width: 80rem;
+    }
+}
+
+.btn-cerrar{
+    color: vars.$blanco;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-color: vars.$rosa;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 3rem;
+    &:hover{
+        cursor: pointer;
+    }
+}
