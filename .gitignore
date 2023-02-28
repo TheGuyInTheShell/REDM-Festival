@@ -4,7 +4,7 @@
 # Ignora la carpeta node_modules
 node_modules
 
-# ignorar el build
+# Ignora el build
 build
 
 # Ignora todos los archivos de texto
@@ -15,3 +15,7 @@ build
 
 # Ignora archivos de configuración SASS
 .sass-cache
+
+# Ignora mac metadata
+._img
+._video
