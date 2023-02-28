@@ -26,18 +26,17 @@ const webp = require("gulp-webp");
 const imagemin = require("gulp-imagemin");
 const avif = require("gulp-avif");
 
-putHTML = function(cb){
+putHTML = (cb)=>{
   src("src/index.html").pipe(dest(buildDirs.html));
   cb();
 };
 
-putVideo = function(cb){
+putVideo = (cb)=>{
   src(videoDir).pipe(dest(buildDirs.video));
   cb();
 };
 
-sassToCss = function(cb){
-  //directorio sass
+sassToCss = (cb)=>{
   src(scssDir)
     .pipe(sourcemaps.init())
     .pipe(plumber())
@@ -49,7 +48,7 @@ sassToCss = function(cb){
     cb();
 };
 
-turnWebp = function(cb){
+turnWebp = (cb)=>{
   src(imgsDir)
     .pipe(
       webp({
@@ -60,7 +59,7 @@ turnWebp = function(cb){
     cb();
 };
 
-compressImages = function(cb){
+compressImages = (cb)=>{
   src(imgsDir)
     .pipe(
       cache(
@@ -73,7 +72,7 @@ compressImages = function(cb){
     cb();
 };
 
-turnAvif = function(cb){
+turnAvif = (cb)=>{
   src(imgsDir)
     .pipe(
       avif({
@@ -83,7 +82,7 @@ turnAvif = function(cb){
     .pipe(dest(buildDirs.imgs));
     cb();
 };
-jsCompress = function(cb){
+jsCompress = (cb)=>{
   src(jsDir)
     .pipe(sourcemaps.init())
     .pipe(terser())
@@ -91,7 +90,7 @@ jsCompress = function(cb){
     .pipe(dest(buildDirs.js));
     cb();
 };
-devIn = function(cb){
+devIn = (cb)=>{
   watch(scssDir, sassToCss);
   watch(jsDir, jsCompress);
   watch("src/index.html", putHTML);
