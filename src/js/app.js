@@ -1,15 +1,15 @@
 "use strict";
 
 const initApp = () => {
-  crearGaleria();
+  createGalery();
   scrollNav();
   navFixed();
 };
 
 const scrollNav = () => {
-  const enlaces = document.querySelectorAll(".nav-principal");
-  enlaces.forEach((enl) => {
-    enl.addEventListener("click", (e) => {
+  const links = document.querySelectorAll(".nav-principal");
+  links.forEach((link) => {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
       const scrollSite = e.target.attributes.href.value;
       const section = document.querySelector(scrollSite);
@@ -19,22 +19,22 @@ const scrollNav = () => {
 };
 
 const navFixed = () => {
-  const barra = document.querySelector(".header");
-  const sobreFestival = document.querySelector(".about-festival");
+  const scroll = document.querySelector(".header");
+  const aboutFestival = document.querySelector(".about-festival");
   const body = document.querySelector("body");
 
   window.addEventListener("scroll", () => {
-    if (sobreFestival.getBoundingClientRect().bottom < 0) {
-      barra.classList.add("fijar");
+    if (aboutFestival.getBoundingClientRect().bottom < 0) {
+      scroll.classList.add("fijar");
       body.classList.add("body-scroll");
     } else {
-      barra.classList.remove("fijar");
+      scroll.classList.remove("fijar");
       body.classList.remove("body-scroll");
     }
   });
 };
 
-const asignarEventos = (pics) => {
+const asignEvents = (pics) => {
   pics.forEach((e) => {
     e.addEventListener("click", (e) => {
       const id = e.target.id;
@@ -51,17 +51,17 @@ const asignarEventos = (pics) => {
         body.classList.remove("body-freeze");
         overlay.remove();
       });
-      const cerrarModal = document.createElement("p");
-      cerrarModal.textContent = "X";
-      cerrarModal.classList.add("btn-cerrar");
+      const closeModal = document.createElement("p");
+      closeModal.textContent = "X";
+      closeModal.classList.add("btn-cerrar");
 
-      cerrarModal.addEventListener("click", () => {
+      closeModal.addEventListener("click", () => {
         const body = document.querySelector("body");
         body.classList.remove("body-freeze");
         overlay.remove();
       });
 
-      overlay.appendChild(cerrarModal);
+      overlay.appendChild(closeModal);
 
       const body = document.querySelector("body");
       body.appendChild(overlay);
@@ -70,8 +70,8 @@ const asignarEventos = (pics) => {
   });
 };
 
-const crearGaleria = () => {
-  const galeria = document.querySelector(".galeria-imagenes");
+const createGalery = () => {
+  const galery = document.querySelector(".galeria-imagenes");
   const pics = [];
   for (let i = 1; i <= 12; i++) {
     const picture = document.createElement("picture");
@@ -79,10 +79,10 @@ const crearGaleria = () => {
     picture.innerHTML = `<source srcset="img/thumb/${i}.avif" type="image/avif">
         <source srcset="img/thumb/${i}.webp" type="image/webp">
         <img id="${i}" loading="lazy"  width="400" height="300" src="img/thumb/${i}.jpg" alt="Imagen del concierto ${i}">`;
-    galeria.appendChild(picture);
+    galery.appendChild(picture);
     pics.push(picture);
   }
-  asignarEventos(pics);
+  asignEvents(pics);
 };
 
 document.addEventListener("DOMContentLoaded", initApp);
