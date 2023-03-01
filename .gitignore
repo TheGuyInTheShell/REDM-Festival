@@ -15,7 +15,3 @@ build
 
 # Ignora archivos de configuración SASS
 .sass-cache
-
-# Ignora mac metadata
-._img
-._video
